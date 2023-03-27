@@ -1,0 +1,17 @@
+1. copy splunkforwarder-<version>.rpm to a temp directoy (https://github.ual.com/CDR-Cyber-Defense-Ops/Splunk_installation/releases)
+
+2. sudo su - 
+ 
+3. from temp dir: rpm -ivh splunkforwarder-<version>.rpm
+
+4. Copy NIX_AWS_folders.zip and extract folders to a temp directory
+
+5. from temp dir: cp -R ual_deployment_client_aws_lin to   /opt/splunkforwarder/etc/apps
+
+6. from temp dir: cp -R ual_nix_aws_clientname to   /opt/splunkforwarder/etc/apps
+
+7. chown -R splunk:splunk /opt/splunkforwarder/etc/apps/ual*
+
+8. /opt/splunkforwarder/bin/splunk enable boot-start --accept-license -systemd-managed 1 -user splunk
+
+9. AS A REGULAR  USER: sudo systemctl start SplunkForwarder.service
